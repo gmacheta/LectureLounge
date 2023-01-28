@@ -43,6 +43,8 @@ class DB_Client:
         }
         
         collection.insert_one(new_user)
+    
+    def list_user_categories(self, username):
         
         
             
