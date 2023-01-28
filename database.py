@@ -46,12 +46,24 @@ class DB_Client:
         }
         
         collection.insert_one(new_user)
+    
+    def list_user_categories(self, username):
         
+        user = self.get_users_collection().find_one({"_id":username})
+        
+        return user["categories"]
+       
         
             
     
 
 dbname = DB_Client()
 
+<<<<<<< HEAD
 dbname.create_user("tim", "10-20-12", "MSU", ["art", "history"])
+=======
+#dbname.create_user("Jay", "10-20-12", "MSU", ["art", "history"])
+
+print(dbname.list_user_categories("Jay"))
+>>>>>>> c86d886d5e3f038859eb1780c3ebaccdbd58d91a
 
