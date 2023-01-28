@@ -1,17 +1,66 @@
 {% extends 'base.html' %}
 {% block title %}Login{% endblock %}
 {% block content %}
-<form method="POST">
-  <h3 align="center">Login</h3>
-  <div class="from-group">
-    <label for="email">Email Adress</label>
-    <input type="text" id="email" name="email" class="form-control" placeholder="Enter Email"/>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"/>
-    <br/>
-    <div align="center"
-    <button class="btn btn-primary" type="submit">Login</button>
-    </div>
-  </div>
-</form>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
+            <div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-primary ms-auto" role="button" href="#">Sign In</a></div>
+        </div>
+    </nav>
+    <section class="position-relative py-4 py-xl-5" style="background: rgba(255,204,74,0.67);">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2>Log in</h2>
+                    <p class="w-lg-50">Log in to your account to start posting</p>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-5">
+                        <div class="card-body d-flex flex-column align-items-center"><img src="assets/img/Blue%20Wood.png" style="width: 150px;">
+                            <form class="text-center" method="post">
+                                <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Login</button></div>
+                                <p class="text-muted">Forgot your password?</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-light footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+                        <p class="text-muted small mb-4 mb-lg-0">© Lecture Lounge 2023. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
 {% endblock %}
