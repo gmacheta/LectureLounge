@@ -31,7 +31,24 @@ class DB_Client:
         for item in db_pointer.find():
             print(item)
             
+    def create_user(self, name, date, school, categories):
+        
+        collection = self.get_users_collection()
+        
+        new_user = {
+            "_id": name,
+            "date_created":date,
+            "school":school,
+            "categories": categories
+        }
+        
+        collection.insert_one(new_user)
+        
+        
+            
     
 
 dbname = DB_Client()
+
+dbname.create_user("Jay", "10-20-12", "MSU", ["art", "history"])
 
