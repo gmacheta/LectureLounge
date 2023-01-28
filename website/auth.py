@@ -6,11 +6,11 @@ auth = Blueprint('auth',__name__)
 def login():
     return render_template('login.html')
 
-'''
+
 @auth.route('/sign-up')
 def sign_up():
     return render_template('signup.html')
-'''
+
 
 @auth.route('/logout')
 def logout():
