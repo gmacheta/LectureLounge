@@ -46,11 +46,10 @@ class DB_Client:
     
     def list_user_categories(self, username):
         
-        user = self.get_users_collection().find({"_id":username})
+        user = self.get_users_collection().find_one({"_id":username})
         
-        for cat in user.find("categories"):
-            print(cat)
-        
+        return user["categories"]
+       
         
             
     
@@ -59,5 +58,5 @@ dbname = DB_Client()
 
 #dbname.create_user("Jay", "10-20-12", "MSU", ["art", "history"])
 
-dbname.list_user_categories("Jay")
+print(dbname.list_user_categories("Jay"))
 
