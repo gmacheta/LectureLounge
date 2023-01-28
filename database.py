@@ -9,3 +9,5 @@ def get_database():
     return client['LectureLounge']
 
 dbname = get_database()
+
+print(dbname)
