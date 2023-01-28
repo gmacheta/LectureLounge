@@ -46,11 +46,18 @@ class DB_Client:
     
     def list_user_categories(self, username):
         
+        user = self.get_users_collection().find({"_id":username})
+        
+        for cat in user.find("categories"):
+            print(cat)
+        
         
             
     
 
 dbname = DB_Client()
 
-dbname.create_user("Jay", "10-20-12", "MSU", ["art", "history"])
+#dbname.create_user("Jay", "10-20-12", "MSU", ["art", "history"])
+
+dbname.list_user_categories("Jay")
 
