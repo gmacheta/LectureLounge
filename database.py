@@ -15,6 +15,7 @@ class DB_Client:
 
     def get_categories_collection(self):
         return self.client["LectureLounge"]["categories"]
+<<<<<<< HEAD
 
     def create_user(self, email, password,{school}{date}{username}):
         collection = self.get_users_collection()
@@ -32,6 +33,9 @@ class DB_Client:
         collection.insert_one(new_user)
         print("user created")
 
+=======
+    
+>>>>>>> f9ab55d250cef186496b19583d51bbbf93903ff5
     def list_users(self):
         db_pointer = self.get_users_collection()
         for item in db_pointer.find():
@@ -40,14 +44,16 @@ class DB_Client:
     def list_user_categories(self, username):
         user = self.get_users_collection().find_one({"_id":username})
         return user["categories"]
-       
-        
-            
     
-
+    
+       
 dbname = DB_Client()
 
+<<<<<<< HEAD
 
 
 
+=======
+dbname.create_user("tim", "10-20-12", "MSU", ["art", "history"])
+>>>>>>> f9ab55d250cef186496b19583d51bbbf93903ff5
 
