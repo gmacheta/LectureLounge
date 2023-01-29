@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 import bcrypt
+import random
 
 class DB_Client:
     def __init__(self):
@@ -15,9 +16,8 @@ class DB_Client:
 
     def get_categories_collection(self):
         return self.client["LectureLounge"]["categories"]
-<<<<<<< HEAD
 
-    def create_user(self, email, password,{school}{date}{username}):
+    def create_user(self, email, password):
         collection = self.get_users_collection()
 
         # Hash the password
@@ -33,9 +33,6 @@ class DB_Client:
         collection.insert_one(new_user)
         print("user created")
 
-=======
-    
->>>>>>> f9ab55d250cef186496b19583d51bbbf93903ff5
     def list_users(self):
         db_pointer = self.get_users_collection()
         for item in db_pointer.find():
@@ -45,15 +42,31 @@ class DB_Client:
         user = self.get_users_collection().find_one({"_id":username})
         return user["categories"]
     
+    def post_category_post(self, category, username, content, date):
+        
+        collection = self.get_categories_collection()
+        
+        collection.update_one(
+            {"_id":category},
+            {'$push':{"post": (username, content, date)}}
+        )
+        
+    def get_random_category_post(self):
+        
+        collection = self.get_categories_collection()
+        
+        length = collection.count_documents({})
+        
+        randomIndex = random.randint(1, length)
+        
+        for names in collection.find({}, {"_id": 0}):
+            print(names)
     
        
 dbname = DB_Client()
 
-<<<<<<< HEAD
+#dbname.post_category_post("intro to programming", "Lebron", "I rule the world", "12-1-02")
 
+dbname.get_random_category_post()
 
-
-=======
-dbname.create_user("tim", "10-20-12", "MSU", ["art", "history"])
->>>>>>> f9ab55d250cef186496b19583d51bbbf93903ff5
 
