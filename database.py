@@ -57,16 +57,21 @@ class DB_Client:
         
         length = collection.count_documents({})
         
-        randomIndex = random.randint(1, length)
+        randomIndex = random.randint(1, length) - 1
         
-        for names in collection.find({}, {"_id": 0}):
-            print(names)
+        names = [names['_id'] for names in collection.find({}, {"_id": 1})]
+        
+        randomPost = [i["post"][0] for i in collection.find({"_id":names[randomIndex]}, {"_id":0})]
+        
+        return randomPost[0]
+            
+        
     
        
 dbname = DB_Client()
 
-#dbname.post_category_post("intro to programming", "Lebron", "I rule the world", "12-1-02")
+#dbname.post_category_post("writing 101", "Lebron", "I rule the world", "12-1-02")
 
-dbname.get_random_category_post()
+print(dbname.get_random_category_post())
 
 
