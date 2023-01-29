@@ -5,7 +5,7 @@ import random
 class DB_Client:
     def __init__(self):
         try:
-            self.CONNECTION_STRING = "mongodb+srv://User:SpartaHack8@spartahack8.jdqhm8z.mongodb.net/?retryWrites=true&w=majority"
+            self.CONNECTION_STRING = "taken out"
             self.client = MongoClient(self.CONNECTION_STRING)
             print("It connected")
         except:
