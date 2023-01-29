@@ -42,14 +42,15 @@ class DB_Client:
         user = self.get_users_collection().find_one({"_id":username})
         return user["categories"]
     
-    def post_category_post(self, category, username, content, date):
+    def post_category_post(self, category, content, date):
         
         collection = self.get_categories_collection()
         
         collection.update_one(
             {"_id":category},
-            {'$push':{"post": (username, content, date)}}
+            {'$push':{"post": (content, date)}}
         )
+        
         
     def get_random_category_post(self):
         
@@ -65,7 +66,3 @@ class DB_Client:
         
         return randomPost[0]
             
-
-dbname = DB_Client()
-
-print(dbname)

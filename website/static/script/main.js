@@ -18,3 +18,23 @@ function generate_post(){
 
     location.appendChild(div);
 }
+
+function sendData() {
+    document.getElementById("form").addEventListener("submit", function(event){
+        event.preventDefault()
+        const className = document.getElementById("Classbox").value; 
+        const content = document.getElementById("PostBox").value;
+        const timeMade = new Date();
+        var json_obj = {
+
+            '_id':className,
+            'content':content,
+            'date': timeMade
+
+        };
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/save_form_data");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(json_obj);
+    }); 
+}
